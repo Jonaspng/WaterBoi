@@ -71,7 +71,6 @@ const HomeScreen = () => {
             <Text className="font-bold text-gray-400 text-xs">Today is: </Text>
             <Text className="font-bold text-xl">
               {moment().format('dddd')}
-              <ChevronDownIcon size={16} color='black'/>
             </Text>
           </View>
           <Text className="font-bold text-xl pr-2 text-indigo-700">
@@ -88,6 +87,9 @@ const HomeScreen = () => {
         }}
         keyboardShouldPersistTaps={'handled'}
       >
+        <View className="px-2">
+          <Text className="text-2xl font-bold pb-2">Water Intake 💧</Text>
+        </View>
         <WaterProgress setData={setWaterData} data={waterData}/>
         <CategoryView />
         <MainStatusView />
