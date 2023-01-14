@@ -5,8 +5,8 @@ function RecordListItem(props) {
   return (
     <View style={{flex:1, flexDirection:"row" }}>
         <View>
-          <Text>{props.rowData.title}</Text>
-          <Text>{props.rowData.description}</Text>
+          <Text>{props.rowData.cups} Cups</Text>
+          <Text>{props.rowData.cups * 300} ml</Text>
         </View>
         <IconButton
           icon="pencil"
