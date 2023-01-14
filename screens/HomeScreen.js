@@ -7,11 +7,13 @@ import * as Location from 'expo-location';
 import locationPinIcon from '../assets/location.png'
 import CategoryView from '../components/Categories/CategoryView'
 import MainStatusView from '../components/CurrentStatus/MainStatusView'
+import TodayRecord from '../components/RecordList/TodayRecord';
 const locationPinImage = Image.resolveAssetSource(locationPinIcon).uri;
 
 const HomeScreen = () => {
   const [location, setLocation] = useState(null);
   const [errMsg, setErrorMsg] = useState(null);
+  const [todayRecord, setTodayRecord] = useState([])
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
@@ -74,9 +76,11 @@ const HomeScreen = () => {
         contentContainerStyle={{
           paddingBottom: 100,
         }}
+        keyboardShouldPersistTaps={'handled'}
       >
         <CategoryView />
         <MainStatusView />
+        <TodayRecord data = {todayRecord}/>
       </ScrollView>
     </SafeAreaView>
   )
