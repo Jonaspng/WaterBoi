@@ -29,7 +29,7 @@ const WaterProgress = (props) => {
     const dataObj = {
       "cups": cups,
       "volume": volumeToAdd,
-      "time_created": currentDate.toLocaleTimeString(),
+      "time": currentDate.toLocaleTimeString(),
       "date_created": currentDate.toLocaleDateString()
     }
 
