@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { ProgressBar, MD3Colors, Button, Modal, Portal } from 'react-native-paper';
+import { Card, Button, Modal, Portal } from 'react-native-paper';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
 
@@ -64,7 +64,7 @@ const WaterProgress = (props) => {
           <ModalContent cups={cups} handleConfirmPress={handleConfirmPress} onChangeText={onChangeText} />
         </Modal>
       </Portal>
-      <View className="align-middle justify-between px-4 py-10 bg-white rounded-md">
+      <Card className="p-5">
         <View className="mr-auto ml-auto text-center -mb-24">
           <AnimatedCircularProgress
             arcSweepAngle={180}
@@ -94,7 +94,7 @@ const WaterProgress = (props) => {
             </Text>
           </Button>
         </View>
-      </View>
+      </Card>
     </View>
   )
 }
