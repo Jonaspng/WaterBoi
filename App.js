@@ -6,6 +6,7 @@ import { Provider as PaperProvider } from 'react-native-paper';
 
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
+import WeeklyIntake from './components/WeeklyIntake/WeeklyIntake';
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

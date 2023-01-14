@@ -7,6 +7,7 @@ import * as Location from 'expo-location';
 import locationPinIcon from '../assets/location.png'
 import CategoryView from '../components/Categories/CategoryView'
 import MainStatusView from '../components/CurrentStatus/MainStatusView'
+import WeeklyIntake from '../components/WeeklyIntake/WeeklyIntake';
 const locationPinImage = Image.resolveAssetSource(locationPinIcon).uri;
 
 const HomeScreen = () => {
@@ -77,6 +78,7 @@ const HomeScreen = () => {
       >
         <CategoryView />
         <MainStatusView />
+        <WeeklyIntake></WeeklyIntake>
       </ScrollView>
     </SafeAreaView>
   )
