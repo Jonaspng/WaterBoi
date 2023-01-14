@@ -18,8 +18,8 @@ function TodayRecord(props) {
       <Card.Title title="Today Records" />
       {props.data.length == 0 ? 
         <Text variant="titleSmall" style={{padding: 10}}> Start drinking water!</Text> :
-        <ScrollView horizontal={true}>
-          <View style={{flexDirection: "column"}}>
+        <ScrollView horizontal={false}>
+          <View>
             <Timeline data={props.data} renderDetail= {renderDetail}/>
           </View>
         </ScrollView>

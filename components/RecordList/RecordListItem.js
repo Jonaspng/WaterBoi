@@ -3,17 +3,19 @@ import { View } from 'react-native'
 
 function RecordListItem(props) {
   return (
-    <View style={{flex:1, flexDirection:"row" }}>
+    <View className="flex-row justify-between">
         <View>
           <Text>{props.rowData.cups} Cups</Text>
           <Text>{props.rowData.cups * 300} ml</Text>
         </View>
-        <IconButton
-          icon="pencil"
-          size={20}
-          onPress={() => console.log('Pressed')}
-          style={{marginLeft: "auto"}}
-        />
+        <View>
+          <IconButton
+            icon="pencil"
+            size={20}
+            onPress={() => console.log('Pressed')}
+          />
+        </View>
+        
       </View>
   );
 }
