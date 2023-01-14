@@ -65,7 +65,7 @@ const HomeScreen = () => {
   }
 
   return (
-    <ViewComponent className={Platform.os == 'android' ? "pt-12" : ""}>
+    <ViewComponent className={Platform.OS == 'android' ? "pt-12" : ""}>
       <Text>
         <View className="flex-row pb-3 items-center mx-4 space-x-2">
           <Image
@@ -98,8 +98,8 @@ const HomeScreen = () => {
           <Text className="text-2xl font-bold pb-2">Water Intake 💧</Text>
         </View>
         <WaterProgress setData={setWaterData} data={waterData}/>
-        <CategoryView />
-        <MainStatusView />
+        {/* <CategoryView />
+        <MainStatusView /> */}
         <TodayRecord data = {waterData}/>
       </ScrollView>
     </ViewComponent>
