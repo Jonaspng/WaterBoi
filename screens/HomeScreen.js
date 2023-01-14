@@ -3,16 +3,20 @@ import React, { useLayoutEffect, useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { ChevronDownIcon } from 'react-native-heroicons/solid'
 import * as Location from 'expo-location';
+import moment from 'moment/moment';
 
-import locationPinIcon from '../assets/location.png'
+import locationPinIcon from '../assets/calendar.png'
 import CategoryView from '../components/Categories/CategoryView'
 import MainStatusView from '../components/CurrentStatus/MainStatusView'
 import WaterProgress from '../components/Card/WaterProgress';
+import { getData } from '../storage/storage';
+
 const locationPinImage = Image.resolveAssetSource(locationPinIcon).uri;
 
 const HomeScreen = () => {
   const [location, setLocation] = useState(null);
   const [errMsg, setErrorMsg] = useState(null);
+  const [waterData, setWaterData] = useState([])
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
@@ -37,7 +41,13 @@ const HomeScreen = () => {
       });
       setLocation(place[0].district);
     })();
-  }, [])
+
+    (async () => {
+      let data = await getData("@datawater");
+      setWaterData(data);
+    })
+
+  }, [waterData])
 
   let textLocation = 'Singapore';
   if (errMsg) {
@@ -54,17 +64,17 @@ const HomeScreen = () => {
             source={{
               uri: locationPinImage
             }}
-            className="h-7 w-7 bg-transparent p-4 rounded-full ml-2"
+            className="h-7 w-7 bg-transparent p-4 rounded-md ml-2"
           />
           <View className="flex-1">
-            <Text className="font-bold text-gray-400 text-xs">Current Location</Text>
+            <Text className="font-bold text-gray-400 text-xs">Today is: </Text>
             <Text className="font-bold text-xl">
-              {textLocation}
+              {moment().format('dddd')}
               <ChevronDownIcon size={16} color='black'/>
             </Text>
           </View>
           <Text className="font-bold text-xl pr-2 text-indigo-700">
-            rainorshine
+            Water Boi
           </Text>
         </View>
       </Text>
@@ -76,7 +86,7 @@ const HomeScreen = () => {
           paddingBottom: 100,
         }}
       >
-        <WaterProgress />
+        <WaterProgress data={waterData}/>
         <CategoryView />
         <MainStatusView />
       </ScrollView>

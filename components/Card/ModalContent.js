@@ -4,30 +4,8 @@ import { Button, TextInput } from 'react-native-paper'
 import { cupVolume } from '../../storage/defaultValues';
 import { getData, storeData } from '../../storage/storage';
 
-const ModalContent = () => {
-  const [cups, setCups] = useState("");
-
-  const handleConfirmPress = async () => {
-    const currentDate = new Date();
-    const volumeToAdd = cupVolume * cups;
-    const dataObj = {
-      "cups": cups,
-      "volume": volumeToAdd,
-      "time_created": currentDate.toLocaleTimeString(),
-      "date_created": currentDate.toLocaleDateString()
-    }
-
-    const data = await getData("@datawater")
-
-    if (data) {
-      await storeData("@datawater", [dataObj, ...data]);
-    } else {
-      await storeData("@datawater", [dataObj])
-    }
-
-    console.log(await getData("@datawater"))
-  }
-
+const ModalContent = (props) => {
+  const { handleConfirmPress, onChangeText, cups } = props;
   return (
     <View>
       <Text className="text-lg font-semibold pb-1">Track your water intake</Text>
@@ -36,7 +14,7 @@ const ModalContent = () => {
         keyboardType='number-pad'
         label="Cups"
         value={cups}
-        onChangeText={cups => setCups(cups)}
+        onChangeText={onChangeText}
       />
       <View className="h-4" />
       <Button
