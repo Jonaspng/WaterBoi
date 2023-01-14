@@ -7,6 +7,7 @@ import * as Location from 'expo-location';
 import locationPinIcon from '../assets/location.png'
 import CategoryView from '../components/Categories/CategoryView'
 import MainStatusView from '../components/CurrentStatus/MainStatusView'
+import WaterProgress from '../components/Card/WaterProgress';
 const locationPinImage = Image.resolveAssetSource(locationPinIcon).uri;
 
 const HomeScreen = () => {
@@ -75,6 +76,7 @@ const HomeScreen = () => {
           paddingBottom: 100,
         }}
       >
+        <WaterProgress />
         <CategoryView />
         <MainStatusView />
       </ScrollView>
