@@ -18,14 +18,14 @@ export default function App() {
         <Tab.Navigator>
           <Tab.Screen name='Home' component={HomeScreen} options={{
             tabBarLabel: 'Home',
-            tabBarIcon: () => (
-              <HomeIcon />
+            tabBarIcon: ({color, size}) => (
+              <HomeIcon color={color} size={size} />
             )
           }}/>
           <Tab.Screen name='About' component={AboutScreen} options={{
             tabBarLabel: 'About',
-            tabBarIcon: () => (
-              <DocumentIcon />
+            tabBarIcon: ({ color, size }) => (
+              <DocumentIcon color={color} size={size} />
             )
           }}/>
         </Tab.Navigator>

@@ -1,6 +1,6 @@
-import { View, SafeAreaView, Text } from 'react-native'
+import { View, SafeAreaView, Text, Linking, Button } from 'react-native'
 import React, { useLayoutEffect } from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { Link, useNavigation } from '@react-navigation/native'
 
 const AboutScreen = () => {
   const navigation = useNavigation();
@@ -12,8 +12,8 @@ const AboutScreen = () => {
 
   return (
     <SafeAreaView>
-      <View>
-        <Text>AboutScreen</Text>
+      <View className="p-4">
+       <Button title="Github Repository" onPress={ ()=>{ Linking.openURL('https://github.com/Jonaspng/WaterBoi')}} />
       </View>
     </SafeAreaView>
   )

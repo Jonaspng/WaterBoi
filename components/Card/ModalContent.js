@@ -18,7 +18,7 @@ const ModalContent = (props) => {
       />
       <View className="h-4" />
       <Button
-        className="mx-28"
+        className="mx-auto"
         mode='contained'
         onPress={handleConfirmPress}
       >
