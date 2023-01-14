@@ -1,12 +1,31 @@
 import { View, Text } from 'react-native'
 import React, { useState } from 'react'
 import { Button, TextInput } from 'react-native-paper'
+import { cupVolume } from '../../storage/defaultValues';
+import { getData, storeData } from '../../storage/storage';
 
 const ModalContent = () => {
   const [cups, setCups] = useState("");
 
-  const handleConfirmPress = () => {
-    
+  const handleConfirmPress = async () => {
+    const currentDate = new Date();
+    const volumeToAdd = cupVolume * cups;
+    const dataObj = {
+      "cups": cups,
+      "volume": volumeToAdd,
+      "time_created": currentDate.toLocaleTimeString(),
+      "date_created": currentDate.toLocaleDateString()
+    }
+
+    const data = await getData("@datawater")
+
+    if (data) {
+      await storeData("@datawater", [dataObj, ...data]);
+    } else {
+      await storeData("@datawater", [dataObj])
+    }
+
+    console.log(await getData("@datawater"))
   }
 
   return (
@@ -28,7 +47,7 @@ const ModalContent = () => {
         <Text className="font-bold">
           Confirm
         </Text>
-        </Button>
+      </Button>
     </View>
   )
 }
