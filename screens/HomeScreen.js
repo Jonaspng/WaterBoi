@@ -12,6 +12,7 @@ import TodayRecord from '../components/RecordList/TodayRecord';
 import WaterProgress from '../components/Card/WaterProgress';
 import { getData } from '../storage/storage';
 
+import WeeklyIntake from '../components/WeeklyIntake/WeeklyIntake';
 const locationPinImage = Image.resolveAssetSource(locationPinIcon).uri;
 
 const HomeScreen = () => {
@@ -98,8 +99,7 @@ const HomeScreen = () => {
           <Text className="text-2xl font-bold pb-2">Water Intake 💧</Text>
         </View>
         <WaterProgress setData={setWaterData} data={waterData}/>
-        {/* <CategoryView />
-        <MainStatusView /> */}
+        <WeeklyIntake></WeeklyIntake>
         <TodayRecord data = {waterData}/>
       </ScrollView>
     </ViewComponent>
