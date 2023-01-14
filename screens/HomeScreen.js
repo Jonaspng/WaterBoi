@@ -1,4 +1,4 @@
-import { View, SafeAreaView, Text, Image, ScrollView } from 'react-native'
+import { View, SafeAreaView, Text, Image, ScrollView, Platform } from 'react-native'
 import React, { useLayoutEffect, useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { ChevronDownIcon } from 'react-native-heroicons/solid'
@@ -57,8 +57,15 @@ const HomeScreen = () => {
     textLocation = location
   }
 
+  let ViewComponent = View
+  if (Platform.OS === 'ios') {
+    ViewComponent = SafeAreaView
+  } else {
+    ViewComponent = View
+  }
+
   return (
-    <SafeAreaView>
+    <ViewComponent className={Platform.os == 'android' ? "pt-12" : ""}>
       <Text>
         <View className="flex-row pb-3 items-center mx-4 space-x-2">
           <Image
@@ -95,7 +102,7 @@ const HomeScreen = () => {
         <MainStatusView />
         <TodayRecord data = {waterData}/>
       </ScrollView>
-    </SafeAreaView>
+    </ViewComponent>
   )
 }
 
