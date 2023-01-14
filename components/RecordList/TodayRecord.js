@@ -14,7 +14,7 @@ function TodayRecord(props) {
 
   return (
   
-    <Card mode={"elevated"} style={{padding: 10}}>
+    <Card mode={"elevated"} style={{padding: 10, margin: 6}}>
       <Card.Title title="Today Records" />
       {props.data.length == 0 ? 
         <Text variant="titleSmall" style={{padding: 10}}> Start drinking water!</Text> :
