@@ -88,10 +88,10 @@ const HomeScreen = () => {
         }}
         keyboardShouldPersistTaps={'handled'}
       >
-        <WaterProgress data={waterData}/>
+        <WaterProgress setData={setWaterData} data={waterData}/>
         <CategoryView />
         <MainStatusView />
-        <TodayRecord data = {todayRecord}/>
+        <TodayRecord data = {waterData}/>
       </ScrollView>
     </SafeAreaView>
   )

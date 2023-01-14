@@ -11,7 +11,7 @@ import { cupVolume } from '../../storage/defaultValues';
 const WaterProgress = (props) => {
   const [visible, setVisible] = useState(false)
   const [cups, setCups] = useState("");
-  const { data } = props;
+  const { data, setData } = props;
   const [waterData, setWaterData] = useState(data);
   const showModal = () => setVisible(() => true)
   const hideModal = () => {
@@ -34,7 +34,7 @@ const WaterProgress = (props) => {
 
     const data = await getData("@datawater")
     setWaterData([dataObj, ...waterData]);
-
+    setData([dataObj, ...waterData])
     if (waterData.length > 0) {
       await storeData("@datawater", [dataObj, ...waterData]);
     } else {
