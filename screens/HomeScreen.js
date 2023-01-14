@@ -8,6 +8,7 @@ import moment from 'moment/moment';
 import locationPinIcon from '../assets/calendar.png'
 import CategoryView from '../components/Categories/CategoryView'
 import MainStatusView from '../components/CurrentStatus/MainStatusView'
+import TodayRecord from '../components/RecordList/TodayRecord';
 import WaterProgress from '../components/Card/WaterProgress';
 import { getData } from '../storage/storage';
 
@@ -85,10 +86,12 @@ const HomeScreen = () => {
         contentContainerStyle={{
           paddingBottom: 100,
         }}
+        keyboardShouldPersistTaps={'handled'}
       >
         <WaterProgress data={waterData}/>
         <CategoryView />
         <MainStatusView />
+        <TodayRecord data = {todayRecord}/>
       </ScrollView>
     </SafeAreaView>
   )
