@@ -6,6 +6,7 @@ import { Provider as PaperProvider } from 'react-native-paper';
 
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
+import TodayRecord from './components/TodayRecord';
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -13,22 +14,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <PaperProvider>
-      <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name='Home' component={HomeScreen} options={{
-            tabBarLabel: 'Home',
-            tabBarIcon: () => (
-              <HomeIcon />
-            )
-          }}/>
-          <Tab.Screen name='About' component={AboutScreen} options={{
-            tabBarLabel: 'About',
-            tabBarIcon: () => (
-              <DocumentIcon />
-            )
-          }}/>
-        </Tab.Navigator>
-      </NavigationContainer>
+      <TodayRecord />
     </PaperProvider>
     
   );
